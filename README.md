@@ -22,13 +22,13 @@ The dataset used for this project can be found at:
 ### **Total Recordable Incident Rate (TRIR)**
 - A measure of the number of [OSHA](w)-recordable injuries per 200,000 work hours.
 - **Formula:**
-  \[ TRIR = {Total Recordable Cases * times 200,000}{\text{Total Hours Worked}}
+   TRIR = {Total Recordable Cases *  200,000} / {Total Hours Worked}
 - Used to assess overall workplace safety.
 
 ### **Lost Time Incident Rate (LTIR)**
 - A measure of incidents where an employee was unable to work due to injury.
 - **Formula:**
-  \[ LTIR = \frac{\text{Lost Time Cases} \times 200,000}{\text{Total Hours Worked}} \]
+  LTIR ={Lost Time Cases *  200,000} / {Total Hours Worked}
 - Focuses on the severity of workplace incidents.
 - A Lost Time Case is generally defined as an incident where an employee is unable to work for a full shift or more due to an injury or illness sustained at work.
 
@@ -36,7 +36,7 @@ The dataset used for this project can be found at:
 - A metric used to measure the number of fatalities per 100 million hours worked.
 - Commonly used in high-risk industries such as oil & gas, construction, and manufacturing.
 - **Formula:**
-  \[ FAR = \frac{\text{Number of Fatalities} \times 100,000,000}{\text{Total Hours Worked}} \]
+  FAR = {Number of Fatalities *  100,000,000} / {Total Hours Worked}
 
 ## Results So Far
 
