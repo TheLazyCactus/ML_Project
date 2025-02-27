@@ -38,26 +38,19 @@ The dataset used for this project can be found at:
 - **Formula:**
   FAR = {Number of Fatalities *  100,000,000} / {Total Hours Worked}
 
-## Results So Far
+## Workflow:
+1.	Fit ARIMA Models:
+   Fit separate ARIMA models for each of the target columns (TRIR total, TRIR company only, and TRIR contractor only).
+   For each model, you'll generate predictions and residuals.
+2.	Stack ARIMA Predictions and Residuals:
+   Add the predictions and residuals for each ARIMA model to the dataset.
+3.	Random Forest Model Stacking:
+   Use the TRIR total, TRIR company only, and TRIR contractor only ARIMA predictions and residuals as additional features to train a Random Forest model.
+   The target variables will be the LTIR total, LTIR company only, and LTIR contractor only.
+4.	Prediction:
+   The trained Random Forest model will predict LTIR total, LTIR company only, and LTIR contractor only based on the ARIMA features.
 
-### **Model Used**
-**RandomForestRegressor**
-```python
-RandomForestRegressor(n_estimators=100, random_state=42)
-```
 
-### **Model Performance (Mean Absolute Error)**
-| Cases | Mean Absolute Error |
-|-------|---------------------|
-| Predicting all 3 KPIs (LTIR, TRIR, FAR) | 0.59 |
-| Without FAR | 0.35 |
-| Without FAR and LTIR | 0.56 |
-| Without FAR and TRIR | 0.107 |
-
-## Next Steps
-- Model evaluation (R2, accuracy etc)
-- Manage to make the prediction works
-- Cross-validation to improve accuracy
 
 ## Contributors
 - [TheLazyCactus](https://github.com/TheLazyCactus)
