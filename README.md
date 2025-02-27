@@ -39,15 +39,15 @@ The dataset used for this project can be found at:
   FAR = {Number of Fatalities *  100,000,000} / {Total Hours Worked}
 
 ## Workflow:
-1.	Fit ARIMA Models:
+- **Fit ARIMA Models:**
    Fit separate ARIMA models for each of the target columns (TRIR total, TRIR company only, and TRIR contractor only).
    For each model, you'll generate predictions and residuals.
-2.	Stack ARIMA Predictions and Residuals:
+- **Stack ARIMA Predictions and Residuals:**
    Add the predictions and residuals for each ARIMA model to the dataset.
-3.	Random Forest Model Stacking:
+- **Random Forest Model Stacking:**
    Use the TRIR total, TRIR company only, and TRIR contractor only ARIMA predictions and residuals as additional features to train a Random Forest model.
    The target variables will be the LTIR total, LTIR company only, and LTIR contractor only.
-4.	Prediction:
+- **Prediction:**
    The trained Random Forest model will predict LTIR total, LTIR company only, and LTIR contractor only based on the ARIMA features.
 
 
