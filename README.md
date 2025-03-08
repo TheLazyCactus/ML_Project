@@ -1,11 +1,10 @@
 # Machine Learning Safety KPI Prediction
+# BunnyGuard Insurance
+This Insurance Portal is an interactive Streamlit web application designed to help companies track, predict, and improve their Lost Time Incident Rate (LTIR). The goal is to provide insightful analytics and motivate businesses to enhance workplace safety, ultimately reducing insurance risks and claims.
 
 ## Project Goal
-This project aims to provide predictions on three key safety KPIs using historical data from the [International Association of Oil & Gas Producers (IOGP)](w) from 2014 to 2023. The three KPIs being predicted are:
-
+This project aims to provide predictions on three key safety KPIs using historical data from the [International Association of Oil & Gas Producers (IOGP)](w) from 2014 to 2023:
 - **LTIR (Lost Time Incident Rate)**
-- **TRIR (Total Recordable Incident Rate)**
-- **FAR (Fatal Accident Rate)**
 
 The final product will allow users to input past safety data from their company and receive predictions for the upcoming years.
 
@@ -19,12 +18,6 @@ The dataset used for this project can be found at:
 
 ## Key Definitions
 
-### **Total Recordable Incident Rate (TRIR)**
-- A measure of the number of [OSHA](w)-recordable injuries per 200,000 work hours.
-- **Formula:**
-   TRIR = {Total Recordable Cases *  200,000} / {Total Hours Worked}
-- Used to assess overall workplace safety.
-
 ### **Lost Time Incident Rate (LTIR)**
 - A measure of incidents where an employee was unable to work due to injury.
 - **Formula:**
@@ -32,27 +25,44 @@ The dataset used for this project can be found at:
 - Focuses on the severity of workplace incidents.
 - A Lost Time Case is generally defined as an incident where an employee is unable to work for a full shift or more due to an injury or illness sustained at work.
 
-### **Fatal Accident Rate (FAR)**
-- A metric used to measure the number of fatalities per 100 million hours worked.
-- Commonly used in high-risk industries such as oil & gas, construction, and manufacturing.
-- **Formula:**
-  FAR = {Number of Fatalities *  100,000,000} / {Total Hours Worked}
-
 ## Workflow:
-- **Fit ARIMA Models:**
-- 
-   Fit separate ARIMA models for each of the target columns (TRIR total, TRIR company only, and TRIR contractor only).
-   For each model, you'll generate predictions and residuals.
-- **Stack ARIMA Predictions and Residuals:**
-- 
-   Add the predictions and residuals for each ARIMA model to the dataset.
-- **Random Forest Model Stacking:**
-- 
-   Use the TRIR total, TRIR company only, and TRIR contractor only ARIMA predictions and residuals as additional features to train a Random Forest model.
-   The target variables will be the LTIR total, LTIR company only, and LTIR contractor only.
-- **Prediction:**
-- 
-   The trained Random Forest model will predict LTIR total, LTIR company only, and LTIR contractor only based on the ARIMA features.
+
+### Features
+
+- LTIR Predictions: Uses a Linear Regression Model to predict LTIR for the next 3 years based on historical data.
+- Company Selection: Users can select their company from a dropdown menu to view specific insights.
+- Interactive Data Visualization: Line graphs displaying past and future LTIR trends.
+- Motivational Safety Tips: Expandable sections providing advice on reducing workplace incidents.
+- Bunny Mascot: A fun, friendly bunny displayed at the bottom of the page for encouragement.
+- External Resources: Helpful safety guidelines with clickable URLs.
+
+## Data & Model
+
+- Dataset: Historical LTIR values per company.
+- Machine Learning Model: Linear Regression trained on past LTIR data to predict future values.
+- Feature Engineering: Uses past LTIR values as lag features for forecasting.
+
+
+## How to Run the App
+
+- pip install streamlit pandas numpy scikit-learn matplotlib
+- Run the Streamlit App:
+- streamlit run Streamlit_LTIR.py
+
+## How to Use
+
+- Select a company from the dropdown menu.
+- View historical LTIR data and predictions for the next three years.
+- Explore safety tips by clicking on expandable buttons.
+- Check the friendly bunny at the end for a fun touch!
+
+## Future Improvements
+
+- Add more advanced ML models (e.g., Time Series models like ARIMA or LSTM).
+- Incorporate real-time data updates.
+- Incorporate other KPIs (FAR or TRIR)
+- Get more information on the company like type of activities
+
 
 
 
